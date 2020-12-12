@@ -5,7 +5,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll('input');
-
+const refresh = document.getElementById('refresh-btn');
 
 
 let computerPlay = () => {
@@ -45,19 +45,14 @@ const playRound = (playerSelection) => {
         }
         if (playerScore > computerScore) {
             document.getElementById('playerScore').style.color = "green";
-        } else if (playerScore < computerScore) {
-            document.getElementById('playerScore').style.color = "red";
-        } else {
-            document.getElementById('playerScore').style.color = "black";
-        }
-        if (playerScore > computerScore) {
             document.getElementById('computerScore').style.color = "red";
         } else if (playerScore < computerScore) {
+            document.getElementById('playerScore').style.color = "red";
             document.getElementById('computerScore').style.color = "green";
         } else {
+            document.getElementById('playerScore').style.color = "black";
             document.getElementById('computerScore').style.color = "black";
         }
-
 
 
 
@@ -73,6 +68,12 @@ buttons.forEach(button => {
         playRound(button.value)
     })
 })
+
+//Refresh the page to start a new game
+refresh.addEventListener('click', function(){
+    location.reload();
+    return false;
+});
 
 
 

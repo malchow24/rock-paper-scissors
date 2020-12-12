@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="container">
-        <h1>Rock, Paper, Scissors</h1>
-        <div id="scores">
-            <div id="playerScore" style="score">Player Score: </div>
-            <div id="computerScore" style="score">Computer Score: </div>
+        <div id="title">
+            <h1>Rock, Paper, Scissors</h1>
         </div>
+        <div id="scores">
+            <div id="playerScore" class="score">Player Score: </div>
+            <div id="computerScore" class="score">Computer Score: </div>
+        </div>
+        <div id="btns">
+            <div id="row">
+                <div id="column">
+                    <input type="image" value="rock" id="btn1" src="images/rock.webp" class="img">
+                </div>
+                <div id="column">
+                    <input type="image" value="paper" id="btn2" src="images/paper.webp" class="img">
+                </div>
+                <div id="column">
+                    <input type="image" value="scissors" id="btn3" src="images/scissors.png" class="img">
+                </div>    
+            </div>
+        </div>
+        <div id="result" class="result"></div>
 
-
-
-        <input type="button" value="rock" id="btn1">
-        <input type="button" value="paper" id="btn2">
-        <input type="button" value="scissors" id="btn3">
-        <div id="result"></div>
+        <button id="refresh-btn">New Game</button>
     </div>
 
 

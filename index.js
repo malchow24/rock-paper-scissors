@@ -4,56 +4,91 @@ let round = 0;
 let playerScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll('input');
+
+
+
 let computerPlay = () => {
     let randomOption = Math.floor(Math.random() * gameOptions.length);
     return gameOptions[randomOption];
 }
 
-const playRound = (playerSelection, computerSelection) => {
-    if (playerSelection === gameOptions[0]){
-        if (computerSelection === gameOptions[0]) {
-            return "This round is a tie";
-        } else if (computerSelection === gameOptions[1]){
-            computerScore++;
-            return "Paper beats rock, computer wins";
-        } else if (computerSelection === gameOptions[2]) {
-            playerScore++;
-            return "Rock beats scissors, user wins";
-        }
-    } else if (playerSelection === gameOptions[1]) {
-        if (computerSelection === gameOptions[0]) {
-            playerScore++;
-            return "Paper beats rock, user wins";
-
-        } else if (computerSelection === gameOptions[1]){
-            return "This round is a tie";
-        } else if (computerSelection === gameOptions[2]) {
-            computerScore++;
-            return "Scissors beats paper, computer wins";
-        }
-    } else if (playerSelection === gameOptions[2]) {
-        if (computerSelection === gameOptions[0]) {
-            computerScore++;
-            return "Rock beats scissors, computer wins";
-        } else if (computerSelection === gameOptions[1]){
-            playerScore++;
-            return "Scissors beats paper, user wins";
-        } else if (computerSelection === gameOptions[2]) {
-            return "This round is a tie";
-        }
-    } return computerScore, playerScore;
-};
-
-const Game = () => {
-    for (let i = 0; i < 5; i++) {
-        const userInput = prompt("Rock, Paper, or Scissors?");
-        const compSelection = computerPlay();
-        console.log(`Computer played ${compSelection}`);
-        const output = playRound(userInput, compSelection);
-        console.log(output);
-        console.log(playerScore, computerScore);
-    }
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
 }
 
-Game();
+const playRound = (playerSelection) => {
+    let computerSelection = computerPlay();
+    let result = "";
+        if((playerSelection === gameOptions[0] && computerSelection === gameOptions[2]) ||
+        (playerSelection === gameOptions[1] && computerSelection === gameOptions[0]) ||
+        (playerSelection === gameOptions[2] && computerSelection === gameOptions[1])) {
+            playerScore++;
+            result = (`You won this round! ${playerSelection} beats ${computerSelection}. Your score: ${playerScore}. Computer Score: ${computerScore}`)
+
+            if (playerScore === 5) {
+                result = (`You won the game!`)
+                disableButtons();
+            }   
+        } else if (playerSelection === computerSelection) {
+            result = (`This round was a tie, you both chose ${playerSelection}. Your score: ${playerScore}. Computer Score: ${computerScore}`)
+        } else {
+            computerScore++;
+            result = (`You lost this round! ${computerSelection} beats ${playerSelection}. Your score: ${playerScore}. Computer Score: ${computerScore}`)
+
+            if (computerScore === 5) {
+                result = (`The computer wins this game`);
+                disableButtons();
+            }
+        }
+        if (playerScore > computerScore) {
+            document.getElementById('playerScore').style.color = "green";
+        } else if (playerScore < computerScore) {
+            document.getElementById('playerScore').style.color = "red";
+        } else {
+            document.getElementById('playerScore').style.color = "black";
+        }
+        if (playerScore > computerScore) {
+            document.getElementById('computerScore').style.color = "red";
+        } else if (playerScore < computerScore) {
+            document.getElementById('computerScore').style.color = "green";
+        } else {
+            document.getElementById('computerScore').style.color = "black";
+        }
+
+
+
+
+        document.getElementById('result').innerHTML = result;
+        document.getElementById('playerScore').innerHTML = (`Player Score: ${playerScore}`);
+        document.getElementById('computerScore').innerHTML = (`Computer Score: ${computerScore}`)
+        return
+    }
+
+
+buttons.forEach(button => {
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

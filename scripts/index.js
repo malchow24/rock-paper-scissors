@@ -27,7 +27,7 @@ const playRound = (playerSelection) => {
         (playerSelection === gameOptions[1] && computerSelection === gameOptions[0]) ||
         (playerSelection === gameOptions[2] && computerSelection === gameOptions[1])) {
             playerScore++;
-            result = (`You won this round! ${playerSelection} beats ${computerSelection}.`)
+            result = (`You won this round, ${playerSelection} beats ${computerSelection}!`)
 
             if (playerScore === 5) {
                 result = (`You won the game!`)
@@ -37,7 +37,7 @@ const playRound = (playerSelection) => {
             result = (`This round was a tie, you both chose ${playerSelection}!`)
         } else {
             computerScore++;
-            result = (`You lost this round! ${computerSelection} beats ${playerSelection}.`)
+            result = (`You lost this round, ${computerSelection} beats ${playerSelection}!`)
 
             if (computerScore === 5) {
                 result = (`The computer wins this game!`);

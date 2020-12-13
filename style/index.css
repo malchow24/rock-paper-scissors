@@ -5,38 +5,41 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-color: #12232e;
+  width: 1030px;
+  margin: 0 auto 30px auto;
+}
+#container {
+  margin: 20px auto 30px auto;
 }
 #title {
-  padding: 10px;
   text-align: center;
-  margin: 10px 10px 10px 10px;
+  margin: 5px auto 30px auto;
+  padding: 10px;
 }
 h1 {
   color: #eefbfb;
   font-size: 50px;
   resize: none;
+  margin: 20px auto 30px auto;
 }
 .score {
   font-size: 20px;
   color: #eefbfb;
 }
 #scores {
-  width: 25%;
+  width: 50%;
   padding: 20px;
   border: solid #007cc7 4px;
   border-radius: 30px;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px auto 20px auto;
   resize: none;
 }
 .img {
   display: inline-block;
   max-width: 100px;
   max-height: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
+  margin: 30px auto 30px auto;
   float: center;
   resize: none;
   border: solid #eefbfb 4px;
@@ -63,7 +66,7 @@ h1 {
   margin: auto;
 }
 .result {
-  margin: auto 150px auto 150px;
+  margin: 20px auto 30px auto;
   padding: 50px;
   border: solid #007cc7 4px;
   height: 25px;
@@ -71,6 +74,7 @@ h1 {
   font-size: 19px;
   border-radius: 30px;
   color: #eefbfb;
+  width: 60%;
 }
 .refresh {
   width: 100%;
@@ -82,7 +86,63 @@ h1 {
   height: 50px;
   background-color: rgb(233, 109, 109);
 }
-#container {
-  margin-left: 200px;
-  margin-right: 200px;
+/* Responsive for larger screens */
+@media only screen and (min-width: 1300px) {
+  body {
+    width: 1300px;
+  }
+  h1 {
+    font-size: 60px;
+  }
+  .score {
+    font-size: 30px;
+  }
+  #scores {
+    width: 60%;
+  }
+  .img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  #btns {
+    margin: 20px 50px 10px 50px;
+  }
+  .result {
+    margin: 40px auto 30px auto;
+    width: 70%;
+  }
+}
+/* Responsive for smaller screens */
+@media only screen and (min-width: 768px) {
+  body {
+    width: 768px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  body {
+    width: 600px;
+  }
+}
+/* Responsive for Smartphones etc */
+@media only screen and (max-width: 600px) {
+  body {
+    width: 375px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .score {
+    font-size: 20px;
+  }
+  #scores {
+    width: 70%;
+  }
+  .img {
+    max-width: 75px;
+    max-height: 75px;
+  }
+  .result {
+    margin: 40px auto 30px auto;
+    width: 65%;
+  }
 }

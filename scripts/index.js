@@ -4,7 +4,7 @@ let round = 0;
 let playerScore = 0;
 let computerScore = 0;
 const buttons = document.querySelectorAll('input');
-const refresh = document.getElementById('refresh-btn');
+const newGame = document.getElementById('reset');
 
 //Function to get the Computer's random answer from the gameOptions array
 let computerPlay = () => {
@@ -61,7 +61,7 @@ const playRound = (playerSelection) => {
         return
     }
 
-
+//Play Round on button click
 buttons.forEach(button => {
     button.addEventListener('click', function(){
         playRound(button.value)
@@ -69,7 +69,7 @@ buttons.forEach(button => {
 });
 
 //Refresh the page to start a new game
-refresh.addEventListener('click', function(){
+newGame.addEventListener('click', function(){
     location.reload();
     return false;
 });

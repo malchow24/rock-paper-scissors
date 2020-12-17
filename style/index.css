@@ -13,7 +13,7 @@ body {
 }
 #title {
   text-align: center;
-  margin: 5px auto 30px auto;
+  margin: 5px auto 20px auto;
   padding: 10px;
 }
 h1 {
@@ -21,6 +21,29 @@ h1 {
   font-size: 50px;
   resize: none;
   margin: 20px auto 30px auto;
+}
+#reset {
+  background-color: #eefbfb;
+  resize: none;
+  outline: none;
+  border-radius: 4px;
+  display: block;
+  position: absolute;
+  height: 40px;
+}
+#reset:hover {
+  border: solid rgb(44, 230, 44) 4px;
+  box-shadow: 0 0 10px green;
+  resize: none;
+}
+#btn {
+  height: 50px;
+  width: 70px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  position: relative;
 }
 .score {
   font-size: 20px;
